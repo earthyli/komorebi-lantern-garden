@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6ee">
+  <meta name="description" content="Make yourself at home in Japanese. A little village, everyday conversations, and your first café adventure.">
+  <title>Komorebi — A little closer to Japan</title>
+  <link rel="icon" href="assets/leaf.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script defer src="learning.js"></script>
+  <link rel="stylesheet" href="courtyard.css?v=3">
+  <script defer src="courtyard-world.js?v=3"></script>
+  <script defer src="courtyard.js?v=3"></script>
+  <link rel="stylesheet" href="lantern.css?v=3">
+  <script defer src="garden-music.js?v=3"></script>
+  <script defer src="app.js?v=3"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to your village</a>
+  <header class="site-header">
+    <a class="brand" href="#village" aria-label="Komorebi village home"><img src="assets/leaf.svg" width="39" height="39" alt=""><span>komorebi<small>JAPANESE LEARNING VILLAGE</small></span></a>
+    <nav aria-label="Main navigation"><a href="#village" data-nav="village">Explore</a><a href="#practice" data-nav="practice">Practice</a><a href="#notebook" data-nav="notebook">My notebook</a></nav>
+    <button class="passport-button" data-action="passport"><span aria-hidden="true">▧</span> My passport <span class="avatar" aria-hidden="true"></span></button>
+  </header>
+  <audio id="garden-music" loop preload="none" src="assets/audio/lantern-hours.wav"></audio>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer"><span><img src="assets/leaf.svg" width="17" height="17" alt=""> Little moments. Real Japanese.</span><span>Made for the journey, at your own pace.<i> LANTERN GARDEN · v0.3</i></span></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="modal" aria-labelledby="modal-title"></dialog>
+</body>
+</html>

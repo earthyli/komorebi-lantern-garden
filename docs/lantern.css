@@ -1,0 +1,75 @@
+:root {
+  --paper:#f5f1e9; --card:#fffbf3; --ink:#252d36; --muted:#61665f;
+  --green:#34495a; --green-dark:#243845; --line:#ded5c6;
+  --serif:'Baskerville','Iowan Old Style',Georgia,serif;
+}
+body {background:radial-gradient(ellipse at 84% 0,#eee1d7 0,transparent 38rem),var(--paper)}
+.site-header {height:77px;max-width:1340px;padding-inline:clamp(20px,4vw,62px);border-color:#cec4b4}
+.brand>span{font-weight:500;letter-spacing:-1.6px;font-size:32px}
+.brand small{font-size:8px;color:#706452;letter-spacing:1.65px}
+.brand>img{width:36px;height:36px;padding:5px;border-radius:45% 45% 40% 40%;background:#e5ddcb}
+.site-header nav a{font-size:13px;color:#625d55}
+.site-header nav a.active:after{background:#a65a3f;bottom:15px}
+.passport-button{font-size:12px}
+.avatar{background:#dcb68e url(assets/garden/front-portrait.webp) center 12%/102% auto no-repeat;width:39px;height:39px}
+.page{max-width:1340px;padding-inline:clamp(20px,4vw,62px)}
+.courtyard-page{padding-top:24px}
+.garden-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 18px}
+.garden-kicker{display:flex;align-items:center;gap:9px;letter-spacing:.23em;color:#83513e;font-size:12px}
+.garden-kicker i{display:block;width:28px;height:1px;background:#ac7252}
+.garden-heading h1{font:500 clamp(38px,4vw,63px)/1.02 var(--serif);margin:5px 0 0;letter-spacing:-.045em;color:#29343c}
+.sound-player{display:flex;align-items:center;gap:11px;border:1px solid #cdbfae;border-radius:40px;background:#faf5e9;padding:6px 14px 6px 7px;min-height:46px;text-align:left;box-shadow:0 2px 5px #40352308}
+.sound-player:hover{background:#fffaf1;border-color:#a58a6f}
+.sound-disc{width:33px;height:33px;border-radius:50%;display:grid;place-items:center;background:repeating-radial-gradient(circle at center,#344955 0 2px,#273a46 3px 4px);color:#edc88e;font:17px Georgia}
+.sound-player strong,.sound-player small{display:block}.sound-player strong{font:600 14px/1.18 var(--serif)}
+.sound-player small{font-size:10px;color:#6b6056;margin-top:2px}
+.sound-bars{display:flex;align-items:center;gap:2px;height:17px;margin-left:4px}
+.sound-bars i{width:2px;height:4px;background:#995c42;border-radius:3px}
+.sound-bars i:nth-child(2){height:13px}.sound-bars i:nth-child(3){height:9px}.sound-bars i:nth-child(4){height:6px}
+[data-playing=true] .sound-bars i{animation:meter .8s ease-in-out alternate infinite}
+[data-playing=true] .sound-bars i:nth-child(2){animation-delay:-.4s}
+@keyframes meter{from{transform:scaleY(.4)}to{transform:scaleY(1.15)}}
+.courtyard-frame{height:clamp(440px,54vw,660px);border:1px solid #a78569;border-radius:15px;background:#273040;box-shadow:0 12px 32px #41372724,0 1px 3px #41372722}
+.courtyard-name,.courtyard-expand,.world-label,.courtyard-dpad,.courtyard-context p,.world-interact{background:#252d36ed;color:#fff1d8;border:1px solid #d2ae7977;box-shadow:0 3px 12px #17141e42;backdrop-filter:blur(8px)}
+.courtyard-name,.courtyard-expand{border-radius:24px;font-size:11px;min-height:36px;padding:6px 13px;align-items:center}
+.courtyard-name i{background:#e8bf7b;box-shadow:0 0 8px #f4ce8f;display:inline-block;width:6px;height:6px;border-radius:50%}
+.courtyard-expand:hover,.world-label:hover{background:#423d3b;color:#fff5e2}
+.world-label{border-radius:7px;padding:5px 9px;gap:6px}
+.world-label::after{content:'';position:absolute;bottom:-4px;left:calc(50% - 3px);background:#433f3c;transform:rotate(45deg);width:6px;height:6px;border-right:1px solid #d2ae7977;border-bottom:1px solid #d2ae7977}
+.world-label svg{color:#edc88f;width:15px}.world-label strong{font-size:11px;line-height:1.3;color:#fff2d9}
+.world-label small{font-size:7px;letter-spacing:.7px;color:#e2cbb1;margin-top:3px}
+.world-label-dot{height:6px;width:6px;background:#ecbd7d;box-shadow:0 0 0 3px #aa825f55}
+.courtyard-dpad{padding:6px;gap:3px;border-radius:13px}.courtyard-dpad button{background:#35404a;border:1px solid #a89a825e;color:#f4dcbc}
+.courtyard-dpad button.pressed{background:#7e644e;color:white}
+.courtyard-context p{font-size:11px;color:#f3e1c4;margin:0 0 5px}
+.world-interact{background:#f4dcac;color:#302d2b;display:block;margin-left:auto}
+.world-interact:hover:not(:disabled){background:#ffe8bd}
+.world-interact:disabled{display:none}
+.courtyard-caption{color:#696252;padding-top:10px}.courtyard-caption kbd{background:#fcf9f1;color:#574f43}
+.courtyard-visit{position:relative;isolation:isolate;overflow:hidden;background:#303d48;color:#fff3db;border:1px solid #5b6060;padding:20px 26px 20px 112px}
+.courtyard-visit:before{content:'';position:absolute;left:9px;bottom:-42px;width:91px;height:149px;background:url(assets/garden/haru.webp) center top/auto 178px no-repeat}
+.courtyard-visit .small-label{color:#ebc081}.courtyard-visit p{color:#eadfd0}.courtyard-visit .primary-button{background:#f1d8aa;color:#302e32}
+.courtyard-visit h2{font-size:30px}
+.mini-card,.practice-panel,.word-card,.lesson-card,dialog{background:#fffbf3;border-color:#d9cdbb}
+.mini-icon,.mini-card:nth-child(3) .mini-icon{color:#51627a;background:#e7e8e7}
+.host-portrait{background:linear-gradient(0deg,#242e3880,transparent),url(assets/garden/lantern-garden.webp) 20% 28%/cover}
+.host-panel .host-portrait img{display:block;width:145px;height:145px;object-fit:contain;margin:38px auto 0;clip-path:none;background:#f1d9a8d9;border-radius:50% 50% 6% 6%}
+.courtyard-haru-portrait{background:#e5d6b9}.courtyard-haru-portrait img{width:100%;height:100%;object-fit:contain}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:540px){
+ .site-header{height:96px;padding-top:9px}.site-header nav{margin-top:2px}.site-header nav a.active:after{bottom:0}
+ .courtyard-page{padding:17px 13px 24px}.garden-heading{margin:0 3px 13px;gap:8px}.garden-kicker{font-size:10px}
+ .garden-heading h1{font-size:clamp(29px,7vw,38px)}.sound-player{gap:6px;padding:5px 9px 5px 5px}.sound-player strong{font-size:11px}.sound-player small{font-size:9px}.sound-disc{width:27px;height:27px}.sound-bars{display:none}
+ .courtyard-frame{width:100%;margin:0;height:clamp(370px,64svh,590px);border-radius:11px}
+ .courtyard-name,.courtyard-expand{min-height:35px}.courtyard-visit{padding:18px 17px 17px 85px}.courtyard-visit:before{left:0;width:84px;bottom:0}.courtyard-visit .primary-button{min-width:0}
+}
+@media(max-width:540px){
+ .site-header{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:49px 38px;align-items:center;gap:0 8px;padding:5px 15px 0;height:93px}
+ .site-header nav{grid-column:1/-1;grid-row:2;justify-self:center;margin:0;align-self:end}
+ .site-header .brand{width:auto;min-width:0}.site-header .brand>span{font-size:25px}.site-header .brand small{font-size:6px;letter-spacing:1.2px}
+ .site-header .passport-button{grid-column:2;grid-row:1;gap:5px;margin:0;padding:3px;font-size:10px}
+ .site-header .avatar{margin:0;width:32px;height:32px}
+}
+.world-tools{display:flex;align-items:center;gap:7px;pointer-events:auto}
+.world-sound{display:none;align-items:center;gap:6px;min-height:36px;padding:6px 12px;border-radius:22px;background:#252d36ed;color:#fff1d8;border:1px solid #d2ae7977;font-size:11px}
+.is-expanded .world-sound{display:flex}

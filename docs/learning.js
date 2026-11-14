@@ -1,0 +1,48 @@
+(function (root) {
+  'use strict';
+  const missions = [
+    {id:'listen',number:'01',title:'A familiar voice',jp:'聞いてみよう',tag:'LISTEN & UNDERSTAND',minutes:3,description:'Get to know the sounds of a small café. A drink, a number, a little listening.',goal:'Recognize a drink and quantities from one to three.',icon:'headphones',primer:[['コーヒー','Coffee'],['お茶','Tea'],['水','Water'],['ジュース','Juice'],['ひとつ・ふたつ・みっつ','One · two · three things']],questions:[
+      {id:'l1',type:'listen',prompt:'What would this customer like?',jp:'コーヒーをください。',meaning:'Coffee, please.',options:['☕ Coffee','🍵 Tea','💧 Water'],answer:0,explanation:'コーヒー means coffee. を marks what you are requesting; ください makes the request polite.'},
+      {id:'l2',type:'listen',prompt:'Listen for the drink.',jp:'お茶をください。',meaning:'Tea, please.',options:['💧 Water','🍵 Tea','☕ Coffee'],answer:1,explanation:'お茶（おちゃ）means tea. The familiar をください pattern stays the same.'},
+      {id:'l3',type:'listen',prompt:'Which order did you hear?',jp:'コーヒーをふたつください。',meaning:'Two coffees, please.',options:['☕ One coffee','☕☕ Two coffees','🍵🍵 Two teas'],answer:1,explanation:'ふたつ means two things. Listen for the quantity after コーヒーを.'},
+      {id:'l4',type:'listen',prompt:'What is the customer asking for?',jp:'水をひとつください。',meaning:'One water, please.',options:['🍵 One tea','💧💧 Two waters','💧 One water'],answer:2,explanation:'水（みず）means water and ひとつ means one thing. お水 is also a common polite way to refer to water.'},
+      {id:'l5',type:'listen',prompt:'How many teas?',jp:'お茶をみっつください。',meaning:'Three teas, please.',options:['🍵 One','🍵🍵 Two','🍵🍵🍵 Three'],answer:2,explanation:'みっつ means three things. Notice the small っ: it creates a short pause before つ.'},
+      {id:'l6',type:'listen',prompt:'One last order. What did you hear?',jp:'ジュースをふたつください。',meaning:'Two juices, please.',options:['🧃🧃 Two juices','☕☕ Two coffees','🧃 One juice'],answer:0,explanation:'ジュース means juice, and ふたつ tells you there are two. You understood both the item and the quantity.'}
+    ]},
+    {id:'order',number:'02',title:'Your order, please',jp:'注文してみよう',tag:'BUILD A REQUEST',minutes:4,description:'Turn familiar words into a useful little sentence. Your first order is on the way.',goal:'Request a drink politely, including a small quantity.',icon:'cup',primer:[['コーヒーをひとつください。','One coffee, please.'],['お茶をふたつお願いします。','Two teas, please.'],['ください / お願いします','Two useful ways to make a polite request.']],questions:[
+      {id:'o1',type:'choice',prompt:'You would like one coffee. What do you say?',jp:'コーヒーをひとつください。',meaning:'One coffee, please.',options:['コーヒーをひとつください。','お茶をひとつください。','コーヒーをふたつください。'],answer:0,explanation:'This asks for one coffee: コーヒー + を + ひとつ + ください.'},
+      {id:'o2',type:'tiles',prompt:'Build your request: one tea, please.',jp:'お茶をひとつください。',meaning:'One tea, please.',tiles:['お茶を','ひとつ','ください。'],explanation:'Place the item first, then the quantity, then the polite request: お茶を → ひとつ → ください。'},
+      {id:'o3',type:'choice',prompt:'You are ordering two juices.',jp:'ジュースをふたつお願いします。',meaning:'Two juices, please.',options:['ジュースをひとつお願いします。','ジュースをふたつお願いします。','水をふたつお願いします。'],answer:1,explanation:'ジュース is juice; ふたつ is two. お願いします is a natural polite request in this ordering context.'},
+      {id:'o4',type:'tiles',prompt:'Build your request: two coffees, please.',jp:'コーヒーをふたつください。',meaning:'Two coffees, please.',tiles:['コーヒーを','ふたつ','ください。'],explanation:'The same pattern works with a new item and quantity: コーヒーをふたつください。'},
+      {id:'o5',type:'tiles',prompt:'Build your request: one water, please.',jp:'水をひとつお願いします。',meaning:'One water, please.',tiles:['水を','ひとつ','お願いします。'],explanation:'水（みず）is water. You can finish this request with お願いします. お水 is also commonly used.'},
+      {id:'o6',type:'choice',prompt:'Which request matches three teas?',jp:'お茶をみっつください。',meaning:'Three teas, please.',options:['お茶をふたつください。','水をみっつください。','お茶をみっつください。'],answer:2,explanation:'お茶 + みっつ gives you three teas. You can now change both parts of the request.'}
+    ]},
+    {id:'chat',number:'03',title:'A little conversation',jp:'話してみよう',tag:'PUT IT TOGETHER',minutes:4,description:'Meet Haru at the counter. Order, choose takeaway, and finish with a thank-you.',goal:'Follow a short café exchange and respond to familiar questions.',icon:'chat',primer:[['ご注文は？','What would you like to order?'],['お持ち帰りですか。','Is that to take away?'],['はい、お願いします。','Yes, please.'],['店内でお願いします。','For here, please.'],['ありがとうございます。','Thank you.']],questions:[
+      {id:'c1',type:'dialogue',host:'いらっしゃいませ。ご注文は？',hostMeaning:'Welcome. What would you like to order?',prompt:'You would like one coffee. Reply to Haru.',jp:'コーヒーをひとつください。',meaning:'One coffee, please.',options:['コーヒーをひとつください。','ジュースをふたつください。','お茶をみっつください。'],answer:0,explanation:'You matched the order to your goal. いらっしゃいませ is the welcome you will often hear in shops.'},
+      {id:'c2',type:'dialogue',host:'お持ち帰りですか。',hostMeaning:'Is that to take away?',prompt:'Yes, you want your order to take away.',jp:'はい、お願いします。',meaning:'Yes, please.',options:['ありがとうございます。','はい、お願いします。','店内でお願いします。'],answer:1,explanation:'はい、お願いします agrees to the takeaway option. The reply gets its meaning from Haru’s question.'},
+      {id:'c3',type:'dialogue',host:'お持ち帰りですか。',hostMeaning:'Is that to take away?',prompt:'A new visit: this time, you want to stay in the café.',jp:'店内でお願いします。',meaning:'For here, please.',options:['店内でお願いします。','はい、お願いします。','お茶をふたつください。'],answer:0,explanation:'店内（てんない）means inside the shop. This tells Haru you would like your order for here.'},
+      {id:'c4',type:'dialogue',host:'ご注文は？',hostMeaning:'What would you like to order?',prompt:'A friend joins you. Ask for two teas.',jp:'お茶をふたつください。',meaning:'Two teas, please.',options:['コーヒーをふたつください。','お茶をひとつください。','お茶をふたつください。'],answer:2,explanation:'You reused the request pattern in a changed situation: お茶をふたつください。'},
+      {id:'c5',type:'dialogue',host:'お持ち帰りですか。',hostMeaning:'Is that to take away?',prompt:'You and your friend are taking your teas with you.',jp:'はい、お願いします。',meaning:'Yes, please.',options:['店内でお願いします。','はい、お願いします。','水をひとつください。'],answer:1,explanation:'はい、お願いします is a short, polite way to confirm the option you were just offered.'},
+      {id:'c6',type:'dialogue',host:'お待たせしました。',hostMeaning:'Thank you for waiting. / Here you are.',prompt:'Haru hands you your drinks. Thank them.',jp:'ありがとうございます。',meaning:'Thank you.',options:['お茶をみっつください。','店内でお願いします。','ありがとうございます。'],answer:2,explanation:'ありがとうございます politely thanks Haru. You have reached the end of your café exchange.'}
+    ]}
+  ];
+  const words = [
+    ['コーヒー','コーヒー','Coffee','A café essential.'],['お茶','おちゃ','Tea','Often used for tea in general.'],['水','みず','Water','お水 is also commonly used.'],['ジュース','ジュース','Juice','A familiar katakana word.'],['ひとつ','ひとつ','One thing','Useful for a simple order.'],['ふたつ','ふたつ','Two things','A quantity for two items.'],['みっつ','みっつ','Three things','Notice the short pause at っ.'],['ください','ください','Please give me…','Used after the thing you request.'],['お願いします','おねがいします','Please / I would like…','Meaning depends on the situation.'],['お持ち帰り','おもちかえり','Takeaway','Useful at a café counter.'],['店内','てんない','Inside the shop / for here','店内でお願いします: for here, please.'],['ありがとうございます','ありがとうございます','Thank you','A polite everyday thank-you.']
+  ];
+  const allQuestions = missions.flatMap(m=>m.questions.map(q=>({...q,mission:m.id})));
+  const blankState=()=>({version:1,xp:0,completed:[],learned:[],attempts:{},reviews:{},lastVisit:null});
+  function restore(raw){try{const p=typeof raw==='string'?JSON.parse(raw):raw;if(!p||p.version!==1) return blankState();const s=blankState();s.xp=Number.isFinite(p.xp)?Math.max(0,p.xp):0;s.completed=Array.isArray(p.completed)?[...new Set(p.completed.filter(id=>missions.some(m=>m.id===id)))]:[];s.learned=Array.isArray(p.learned)?[...new Set(p.learned.filter(id=>allQuestions.some(q=>q.id===id)))]:[];for(const q of allQuestions){const a=p.attempts?.[q.id];if(a&&Number.isInteger(a.total)&&a.total>=0&&Number.isInteger(a.correct)&&a.correct>=0&&a.correct<=a.total)s.attempts[q.id]={total:a.total,correct:a.correct,hints:Number.isInteger(a.hints)&&a.hints>=0?a.hints:0};const r=p.reviews?.[q.id];if(r&&Number.isFinite(r.due)&&Number.isInteger(r.streak)&&r.streak>=0)s.reviews[q.id]={due:r.due,streak:r.streak};}s.lastVisit=Number.isFinite(p.lastVisit)?p.lastVisit:null;return s;}catch{return blankState();}}
+  function recordAnswer(state,id,correct,hinted,now=Date.now()){
+    if(!allQuestions.some(q=>q.id===id)) throw new Error('Unknown learning item');
+    const s=restore(state), a=s.attempts[id]||{total:0,correct:0,hints:0};
+    a.total++; if(correct)a.correct++;if(hinted)a.hints++;s.attempts[id]=a;
+    if(correct&&!s.learned.includes(id)){s.learned.push(id);s.xp+=10;}
+    const independent=correct&&!hinted;const streak=independent?(s.reviews[id]?.streak||0)+1:0;
+    const intervals=[0,86400000,259200000,604800000,1209600000];
+    s.reviews[id]={streak,due:now+(independent?intervals[Math.min(streak,4)]:1800000)};s.lastVisit=now;return s;
+  }
+  function completeMission(state,id){if(!missions.some(m=>m.id===id))throw new Error('Unknown mission');const s=restore(state);if(!s.completed.includes(id)){s.completed.push(id);s.xp+=30;}return s;}
+  const dueItems=(state,now=Date.now())=>allQuestions.filter(q=>state.reviews[q.id]&&state.reviews[q.id].due<=now);
+  const api={missions,words,allQuestions,blankState,restore,recordAnswer,completeMission,dueItems};
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.KomorebiLearning=api;
+})(typeof globalThis!=='undefined'?globalThis:this);

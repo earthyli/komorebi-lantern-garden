@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 590" fill="none">
+<defs>
+ <linearGradient id="sky" x2="0" y2="590" gradientUnits="userSpaceOnUse"><stop stop-color="#e6eee5"/><stop offset="1" stop-color="#f4eedc"/></linearGradient>
+ <linearGradient id="wall" x2="0" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#fbf1d7"/><stop offset="1" stop-color="#eddfbd"/></linearGradient>
+ <pattern id="paper" width="19" height="19" patternUnits="userSpaceOnUse"><circle cx="2" cy="4" r=".7" fill="#47664c" opacity=".05"/><circle cx="13" cy="15" r=".5" fill="#47664c" opacity=".06"/></pattern>
+ <pattern id="tiles" width="46" height="32" patternUnits="userSpaceOnUse"><path d="M0 0h46v32H0z" fill="#e6dfc9"/><path d="M0 0h46v32H0z" stroke="#f8f3e2" stroke-width="3"/><path d="M3 4h36" stroke="#d5cdb5" opacity=".4"/></pattern>
+ <filter id="shadow" x="-30%" y="-30%" width="170%" height="170%"><feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#53705a" flood-opacity=".13"/></filter>
+</defs>
+<path fill="url(#sky)" d="M0 0h900v590H0z"/>
+<circle cx="725" cy="100" r="44" fill="#f4d993" opacity=".8"/>
+<path d="M650 93c-27-12-54-7-60 8h-18c-13-22-36-21-43-4h-20" stroke="#fffdf3" stroke-width="16" stroke-linecap="round" opacity=".65"/>
+<path d="M88 95c8-14 30-16 43 0h24c8-22 42-24 57-2h30" stroke="#fffdf3" stroke-width="13" stroke-linecap="round" opacity=".8"/>
+<path d="M0 326c90-18 170-4 230-19 102-25 210 8 307-7s215-18 363 12v278H0Z" fill="#d7dfc2"/>
+<path d="M0 415c145-37 220-13 377-30 143-15 317-6 523 12v193H0Z" fill="#d2d9ba"/>
+<!-- quiet neighboring houses -->
+<g opacity=".48"><path d="m70 258 88-63 87 63" fill="#aebba6"/><path d="M85 255h143v132H85z" fill="#eee8d5"/><path d="M112 283h30v46h-30zm51 0h30v46h-30z" fill="#bacbbc"/><path d="m715 274 80-73 88 73" fill="#adbda6"/><path d="M731 271h129v135H731z" fill="#f3edd8"/><path d="M751 300h35v49h-35zm52 0h35v49h-35z" fill="#b6c9b5"/></g>
+<!-- trees and leaves -->
+<path d="m78 432 9-201M837 441l-11-199" stroke="#8b9270" stroke-width="14" stroke-linecap="round"/>
+<path d="m84 312-34-40m37 15 35-46m709 96 35-47m-35 25-34-51" stroke="#8b9270" stroke-width="8" stroke-linecap="round"/>
+<g fill="#a2bb8a"><ellipse cx="57" cy="220" rx="48" ry="64"/><ellipse cx="104" cy="202" rx="42" ry="65"/><ellipse cx="70" cy="166" rx="49" ry="52"/><ellipse cx="840" cy="224" rx="46" ry="65"/><ellipse cx="804" cy="195" rx="39" ry="62"/><ellipse cx="839" cy="161" rx="44" ry="57"/></g>
+<g fill="#bacb9e"><ellipse cx="40" cy="177" rx="27" ry="34"/><ellipse cx="90" cy="154" rx="27" ry="43"/><ellipse cx="820" cy="150" rx="25" ry="37"/></g>
+<path d="M53 246c9-6 21-5 29 0m12-22c8-5 14-5 23-1m714-9c9-7 16-7 24-2" stroke="#8eaa77" stroke-width="3" stroke-linecap="round"/>
+<!-- shop building -->
+<ellipse cx="450" cy="477" rx="277" ry="26" fill="#7f946b" opacity=".15"/>
+<g filter="url(#shadow)">
+<path d="M234 225h419v229H234z" fill="url(#wall)" stroke="#9b8c6b" stroke-width="3"/>
+<path d="M221 218h445v25H221z" fill="#9b7158"/>
+<path d="m211 220 37-73h392l39 73z" fill="#b36f54" stroke="#97644d" stroke-width="3"/>
+<path d="m234 205 27-47h365l28 47" stroke="#ca8867" stroke-width="5"/>
+<path d="m287 153-18 64m65-64-10 64m65-64-3 64m67-64 2 64m61-64 10 64m43-64 20 64" stroke="#9e614c" stroke-width="3" opacity=".65"/>
+<path d="M269 116h352v60H269z" fill="#f7eed7" stroke="#8b6d50" stroke-width="4"/>
+<path d="M279 125h332v42H279z" stroke="#d4b890" stroke-width="1.5"/>
+<text x="445" y="147" text-anchor="middle" font-family="serif" font-size="24" fill="#42654d" letter-spacing="6">喫茶 こもれび</text>
+<text x="445" y="163" text-anchor="middle" font-family="sans-serif" font-size="9" letter-spacing="4" fill="#987d5d">COFFEE &amp; LITTLE MOMENTS</text>
+<path d="M247 250h391v40H247z" fill="#eee1bf"/>
+<!-- striped canopy -->
+<path d="m247 244-18 49h430l-21-49z" fill="#52775c" stroke="#47644c" stroke-width="2"/>
+<path d="m282 244-13 49h44l8-49zm78 0-5 49h44l1-49zm77 0 3 49h43l-7-49zm79 0 10 49h43l-14-49zm78 0 17 49h43l-20-49z" fill="#f4eed7"/>
+<path d="M229 293h43v15c-12 12-31 12-43 0zm86 0h42v15c-12 12-30 12-42 0zm84 0h43v15c-12 12-31 12-43 0zm86 0h43v15c-12 12-31 12-43 0zm85 0h43v15c-12 12-31 12-43 0zm84 0h5v15l-5 4" fill="#52775c"/>
+<path d="M272 293h43v15c-12 12-31 12-43 0zm85 0h42v15c-12 12-30 12-42 0zm85 0h43v15c-12 12-31 12-43 0zm86 0h42v15c-12 12-30 12-42 0zm85 0h41v15c-12 12-29 12-41 0z" fill="#f4eed7"/>
+<!-- windows -->
+<path d="M255 326h118v105H255z" fill="#b9cec0" stroke="#8c7758" stroke-width="6"/>
+<path d="M264 334h101v63H264z" fill="#bdd4c9"/>
+<path d="M271 338h42v42h-42z" fill="#d9e5d5"/><path d="m317 335 46 44v-44z" fill="#e7eddb"/>
+<path d="M315 328v95m-56-23h111" stroke="#8c7758" stroke-width="4"/>
+<path d="M250 428h128v12H250z" fill="#a2835e"/>
+<path d="M528 326h101v105H528z" fill="#b8cdba" stroke="#8c7758" stroke-width="6"/>
+<path d="M579 329v98m-48-29h94" stroke="#8c7758" stroke-width="4"/>
+<path d="m536 335 35 37v-37z" fill="#e8eddb"/>
+<path d="M526 428h107v12H526z" fill="#a2835e"/>
+<!-- door -->
+<path d="M397 314h106v141H397z" fill="#7b8a68" stroke="#806b4f" stroke-width="6"/>
+<path d="M408 325h84v75h-84z" fill="#b9cdb9" stroke="#dac49a" stroke-width="3"/>
+<path d="M410 327h34v65h-34z" fill="#d0dbbf" opacity=".65"/>
+<path d="M450 325v74" stroke="#dac49a" stroke-width="3"/>
+<circle cx="486" cy="420" r="4" fill="#f0d196"/>
+<path d="m440 342 9-9 11 9" stroke="#7d7558" stroke-width="1.5"/><rect x="427" y="343" width="46" height="24" rx="3" fill="#fcf0cf"/>
+<text x="450" y="359" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#586a4b">OPEN</text>
+<path d="M386 455h129v13H386z" fill="#aeaa8d"/><path d="M374 468h153v12H374z" fill="#c4bea3"/>
+<path d="M235 447h149m133 0h137" stroke="#c3b18b" stroke-width="9"/>
+</g>
+<!-- path -->
+<path d="M364 483h175l88 107H282z" fill="url(#tiles)"/>
+<!-- flower boxes -->
+<path d="M272 417h79l-7 27h-65zM543 418h65l-5 25h-55z" fill="#ac7458"/>
+<g stroke="#6d8c5a" stroke-width="3"><path d="M286 418v-23m18 23 4-29m19 29-4-23m232 23v-21m18 21 1-28m19 28-2-23"/></g>
+<g fill="#dca487"><circle cx="286" cy="393" r="7"/><circle cx="308" cy="388" r="8"/><circle cx="325" cy="393" r="7"/><circle cx="555" cy="395" r="7"/><circle cx="574" cy="389" r="8"/><circle cx="590" cy="393" r="7"/></g>
+<!-- street sandwich board -->
+<path d="m228 413-16 92m63-92 13 92" stroke="#8e7859" stroke-width="6" stroke-linecap="round"/>
+<path d="M221 406h58v80h-58z" fill="#436654" stroke="#9a805d" stroke-width="6"/>
+<text x="250" y="427" text-anchor="middle" font-family="serif" font-size="12" fill="#f7ecd3">本日の</text><text x="250" y="444" text-anchor="middle" font-family="serif" font-size="13" fill="#f7ecd3">おすすめ</text>
+<path d="M237 456h16v10c-5 6-11 6-16 0z" fill="#e4d4ac"/><path d="M253 457c10-2 10 10 0 8" stroke="#e4d4ac" stroke-width="2"/>
+<!-- potted plants -->
+<path d="M142 461h42l-7 36h-27zM703 444h46l-7 40h-32z" fill="#c08a64"/>
+<g fill="#6e9165"><ellipse cx="157" cy="437" rx="13" ry="27" transform="rotate(-30 157 437)"/><ellipse cx="175" cy="440" rx="12" ry="29" transform="rotate(23 175 440)"/><ellipse cx="723" cy="415" rx="13" ry="31" transform="rotate(-18 723 415)"/><ellipse cx="742" cy="423" rx="11" ry="24" transform="rotate(32 742 423)"/></g>
+<!-- Haru, original café host -->
+<ellipse cx="633" cy="497" rx="42" ry="10" fill="#7b8c66" opacity=".2"/>
+<path d="m616 470-1 26m31-25 3 25" stroke="#705a43" stroke-width="13" stroke-linecap="round"/>
+<path d="m601 424 1 50c15 10 35 9 56-1l-4-49z" fill="#f5ecda"/>
+<path d="M615 426v15h27v-15m-26 14-7 36h44l-8-36z" fill="#658876"/>
+<path d="m604 436-16 18m65-17 17-15" stroke="#edbc92" stroke-width="13" stroke-linecap="round"/>
+<ellipse cx="629" cy="398" rx="34" ry="33" fill="#efc49b"/>
+<path d="M597 403c-10-23 0-49 30-49 28 0 44 20 36 49l-9-10-8-21c-13 14-27 17-41 14z" fill="#705346"/>
+<path d="M603 365c7-17 44-23 55 6" stroke="#567963" stroke-width="18" stroke-linecap="round"/>
+<ellipse cx="615" cy="401" rx="2.5" ry="3.5" fill="#5d4d3e"/><ellipse cx="640" cy="401" rx="2.5" ry="3.5" fill="#5d4d3e"/>
+<path d="M623 410q6 7 12-1" stroke="#9b6953" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="607" cy="410" rx="6" ry="3" fill="#db9e85" opacity=".7"/><ellipse cx="649" cy="410" rx="6" ry="3" fill="#db9e85" opacity=".7"/>
+<path d="M621 453h17v11h-17z" fill="#d9e0ca"/>
+<g fill="#d9b568"><path d="m685 375 3-7 3 7 7 3-7 3-3 7-3-7-7-3z"/><circle cx="700" cy="398" r="3"/></g>
+<!-- foreground flowers -->
+<g stroke="#85935c" stroke-width="2"><path d="M73 553v-25m20 34v-28m674 18v-23m27 16v-28"/></g>
+<g fill="#e4ad8b"><circle cx="73" cy="526" r="7"/><circle cx="94" cy="535" r="6"/><circle cx="766" cy="528" r="7"/><circle cx="795" cy="517" r="7"/></g>
+<g fill="#e4cf8a"><circle cx="73" cy="526" r="2"/><circle cx="94" cy="535" r="2"/><circle cx="766" cy="528" r="2"/><circle cx="795" cy="517" r="2"/></g>
+<path d="M0 0h900v590H0z" fill="url(#paper)"/>
+</svg>
