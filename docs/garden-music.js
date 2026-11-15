@@ -12,10 +12,11 @@
   function display() {
     for (const button of document.querySelectorAll('[data-music]')) {
       const playing = !track.paused;
+      const waitingForTap = enabled && blocked && !playing;
       button.setAttribute('aria-label', playing ? 'Pause garden music' : 'Play garden music');
       button.setAttribute('aria-pressed', String(playing));
       button.dataset.playing = String(playing);
-      button.querySelector('.sound-action').textContent = playing ? 'Pause music' : 'Play music';
+      button.querySelector('.sound-action').textContent = playing ? 'Pause music' : waitingForTap ? 'Tap garden for music' : 'Play music';
     }
   }
 
@@ -36,8 +37,11 @@
   }
   function activate(event) {
     if (event.target.closest('[data-music]') || !track.paused || !eligible()) return;
-    if (blocked || track.readyState < 3) sync();
+    sync();
   }
+  // A touch grants playback permission on release. Movement buttons may consume the click.
+  document.addEventListener('touchend', activate, {capture:true, passive:true});
+  document.addEventListener('pointerup', activate, true);
   document.addEventListener('click', event => {
     const button = event.target.closest('[data-music]');
     if (!button) { activate(event); return; }

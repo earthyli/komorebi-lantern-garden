@@ -9,6 +9,8 @@
    art[name] = image;
  }
  const ready = image => image.complete && image.naturalWidth > 0;
+ // Keep the chosen view while navigating. A fresh visit opens expanded.
+ let preferExpanded = true;
  function mount(element,options={}){
   const canvas=element.querySelector('canvas'),ctx=canvas.getContext('2d');
   if(!ctx){element.querySelector('[data-world-status]').textContent='The courtyard could not open here. You can still start any café mission below.';return {destroy(){},pause(){},resume(){}};}
@@ -79,7 +81,30 @@
   bind(window,'keyup',event=>{const direction=keyDirection(event.key);if(direction){held.delete(direction);if(!held.size)remember();}});
   bind(window,'blur',()=>{stopInput();element.querySelectorAll('.pressed').forEach(b=>b.classList.remove('pressed'));});
   bind(document,'visibilitychange',()=>{if(document.hidden){stopInput();cancelAnimationFrame(raf);raf=0;}else wake();});
-  function toggleExpand(force){expanded=typeof force==='boolean'?force:!expanded;element.classList.toggle('is-expanded',expanded);expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-label',expanded?'Close expanded courtyard':'Expand courtyard');expand.innerHTML=expanded?'↙ <span>Close view</span>':'⤢ <span>Expand</span>';if(expanded){savedOverflow=document.body.style.overflow;document.body.style.overflow='hidden';}else document.body.style.overflow=savedOverflow;resize();canvas.focus({preventScroll:true});}
+  const background = [
+    ...element.parentElement.children,
+    document.querySelector('.site-header'),document.querySelector('.site-footer'),
+    document.querySelector('.skip-link')
+  ].filter(node => node && node !== element && !node.inert);
+  function restorePage() {
+    document.body.style.overflow = savedOverflow;
+    background.forEach(node => { node.inert = false; });
+  }
+  function toggleExpand(force = !expanded) {
+    expanded = force;
+    preferExpanded = expanded;
+    element.classList.toggle('is-expanded', expanded);
+    expand.setAttribute('aria-expanded', String(expanded));
+    expand.setAttribute('aria-label', expanded ? 'Close expanded courtyard' : 'Expand courtyard');
+    expand.innerHTML = expanded ? '↙ <span>Close view</span>' : '⤢ <span>Expand</span>';
+    if (expanded) {
+      savedOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      background.forEach(node => { node.inert = true; });
+    } else restorePage();
+    resize();
+    canvas.focus({preventScroll:true});
+  }
   const observer=new ResizeObserver(resize);observer.observe(element);
   const intersection=new IntersectionObserver(entries=>{visible=entries[0]?.isIntersecting??true;if(visible)wake();else{cancelAnimationFrame(raf);raf=0;stopInput();}},{threshold:0});intersection.observe(element);
   function tick(timestamp){
@@ -128,8 +153,9 @@
       label.hidden=p.x<-45||p.x>width+45||p.y<-30||p.y>height-70;label.style.left=`${W.clamp(p.x,edge,width-edge)}px`;label.style.top=`${p.y}px`;
     }
   }
-  resize();updateContext();wake();
-  return {walkTo,pause,resume,focus:()=>canvas.focus({preventScroll:true}),destroy(){if(destroyed)return;remember();destroyed=true;abort.abort();observer.disconnect();intersection.disconnect();cancelAnimationFrame(raf);if(expanded)document.body.style.overflow=savedOverflow;}};
+  if (preferExpanded) toggleExpand(true); else resize();
+  updateContext();wake();
+  return {walkTo,pause,resume,focus:()=>canvas.focus({preventScroll:true}),destroy(){if(destroyed)return;remember();destroyed=true;abort.abort();observer.disconnect();intersection.disconnect();cancelAnimationFrame(raf);if(expanded)restorePage();}};
  }
  function ellipse(c,x,y,rx,ry,fill=true){c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);fill?c.fill():c.stroke();}
  function rect(c,x,y,w,h,fill,r=0){c.fillStyle=fill;c.beginPath();c.roundRect(x,y,w,h,r);c.fill();}
